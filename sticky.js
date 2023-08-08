@@ -87,18 +87,18 @@ function displayUserNotes() {
   var userNotes = getNotesForCurrentUser()
 
   // Loop through the user's notes and create the note elements
-  userNotes.forEach(function(note) {
+  each(userNotes,function(note) {
       var noteElement = createNoteElement(note.id, note.content)
       notesContainer[0].insertBefore(noteElement, addNoteButton[0])
   })
 }
 
 function getNotesForCurrentUser() {
-  // Get all notes from the local storage
+  // Get notes from the local storage
   var allNotes = getNotes()
 
   // Filter out notes that belong to the current user
-  var userNotes = allNotes.filter(function(note) {
+  var userNotes = filter(allNotes, function(note) {
       return note.userId === currentUser.username
   })
 
@@ -106,7 +106,7 @@ function getNotesForCurrentUser() {
 }
     ///////
  //get note for each click
-    getNotes().forEach(function(note) {
+    each(getNotes(),function(note) {
       var noteElement = createNoteElement(note.id, note.content)
       notesContainer[0].insertBefore(noteElement, addNoteButton[0])
     })
@@ -195,7 +195,7 @@ function getNotesForCurrentUser() {
     }
   
     function deleteNote(id, element) {
-      var notes = getNotes().filter(function(note) {
+      var notes = filter(getNotes(),function(note) {
         return note.id != id
       })
   
