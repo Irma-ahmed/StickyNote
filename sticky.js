@@ -159,7 +159,7 @@ function getNotesForCurrentUser() {
       textArea.on("change", function() {
         updateNote(id, textArea.val());
       });
-    //dbl click to delete 
+    //double click to delete 
       textArea.on("dblclick", function() {
         var doDelete = confirm("Are you sure you wish to delete this sticky note?");
         if (doDelete) {
@@ -186,7 +186,7 @@ function getNotesForCurrentUser() {
   
     function updateNote(id, newContent) {
       var notes = getNotes()
-      var targetNote = notes.filter(function(note) {
+      var targetNote = filter(notes,function(note) {
         return note.id == id
       })[0]
   
